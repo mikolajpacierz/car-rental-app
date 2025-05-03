@@ -1,6 +1,8 @@
 {
   "scripts": {
-    "dev": "concurrently \"docker compose up\" \"cd backend && symfony serve\" \"cd frontend && npm run dev\""
+    "setup": "npm install && concurrently \"cd backend && composer install\" \"cd frontend && npm install\"",
+    "migrate": "php backend/bin/console doctrine:migration:migrate",
+    "dev": "concurrently \"cd backend && docker compose up\" \"cd backend && symfony serve\" \"cd frontend && npm run dev\""
   },
   "devDependencies": {
     "concurrently": "^9.1.2"
