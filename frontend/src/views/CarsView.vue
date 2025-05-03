@@ -1,6 +1,7 @@
 <script setup>
 import {onMounted, ref} from "vue";
 import axiosInstance from "../services/axiosInstance.js";
+import TabNav from "../components/TabNav.vue";
 
 const cars = ref(null);
 
@@ -18,9 +19,8 @@ onMounted(fetchCars);
 </script>
 
 <template>
-  
+  <TabNav/>
 </template>
 
 <style scoped>
-
 </style>
