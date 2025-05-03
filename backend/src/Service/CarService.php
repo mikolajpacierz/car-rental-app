@@ -18,9 +18,9 @@ class CarService
         $this->carRepository = $carRepository;
         $this->entityManager = $entityManager;
     }
-
-
-    public function addCar(CarRequest $carRequest): CarResponse {
+    
+    public function addCar(CarRequest $carRequest): CarResponse
+    {
         $car = new Car();
         $car->setBrand($carRequest->brand);
         $car->setModel($carRequest->model);
@@ -33,12 +33,14 @@ class CarService
         return CarResponse::fromEntity($car);
     }
 
-    public function getCar(int $id): CarResponse {
+    public function getCar(int $id): CarResponse
+    {
         $car = $this->carRepository->findOneBy(['id' => $id]);
         return CarResponse::fromEntity($car);
     }
 
-    public function getCars(): array {
+    public function getCars(): array
+    {
         $cars = $this->carRepository->findAll();
         return array_map(function (Car $car) {
             return CarResponse::fromEntity($car);

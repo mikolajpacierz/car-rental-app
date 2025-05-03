@@ -19,7 +19,8 @@ class ClientController extends AbstractController
     }
 
     #[Route('/clients/new', methods: ['POST'])]
-    public function create(Request $request): JsonResponse {
+    public function create(Request $request): JsonResponse
+    {
         $data = json_decode($request->getContent(), true);
 
         $clientRequest = new ClientRequest();
@@ -34,13 +35,15 @@ class ClientController extends AbstractController
     }
 
     #[Route('/clients/{id}', methods: ['GET'])]
-    public function show(int $id): JsonResponse {
+    public function show(int $id): JsonResponse
+    {
         $client = $this->clientService->getClient($id);
         return $this->json($client, 200);
     }
 
     #[Route('/clients', methods: ['GET'])]
-    public function index(): JsonResponse {
+    public function index(): JsonResponse
+    {
         $clients = $this->clientService->getClients();
         return $this->json($clients, 200);
     }

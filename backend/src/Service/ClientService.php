@@ -19,7 +19,8 @@ class ClientService
         $this->entityManager = $entityManager;
     }
 
-    public function addClient(ClientRequest $clientRequest): ClientResponse {
+    public function addClient(ClientRequest $clientRequest): ClientResponse
+    {
         $client = new Client();
         $client->setFirstName($clientRequest->firstName);
         $client->setLastName($clientRequest->lastName);
@@ -33,12 +34,14 @@ class ClientService
         return ClientResponse::fromEntity($client);
     }
 
-    public function getClient(int $id): ClientResponse {
+    public function getClient(int $id): ClientResponse
+    {
         $client = $this->clientRepository->findOneBy(['id' => $id]);
         return ClientResponse::fromEntity($client);
     }
 
-    public function getClients(): array {
+    public function getClients(): array
+    {
         $clients = $this->clientRepository->findAll();
         return array_map(function (Client $client) {
             return ClientResponse::fromEntity($client);

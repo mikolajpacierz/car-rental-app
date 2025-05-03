@@ -19,7 +19,8 @@ class CarController extends AbstractController
     }
 
     #[Route('/cars/new', methods: ['POST'])]
-    public function create(Request $request): JsonResponse {
+    public function create(Request $request): JsonResponse
+    {
         $data = json_decode($request->getContent(), true);
 
         $carRequest = new CarRequest();
@@ -33,13 +34,15 @@ class CarController extends AbstractController
     }
 
     #[Route('/cars/{id}', methods: ['GET'])]
-    public function show($id): JsonResponse {
+    public function show($id): JsonResponse
+    {
         $car = $this->carService->getCar($id);
         return $this->json($car, 200);
     }
 
     #[Route('/cars', methods: ['GET'])]
-    public function index(): JsonResponse {
+    public function index(): JsonResponse
+    {
         $cars = $this->carService->getCars();
         return $this->json($cars, 200);
     }
