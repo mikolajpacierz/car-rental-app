@@ -3,7 +3,7 @@ import {onMounted, ref} from "vue";
 import axiosInstance from "../services/axiosInstance.js";
 import TabNav from "../components/TabNav.vue";
 
-const clients = ref(null)
+const clients = ref([])
 
 const fetchClients = async () => {
   try {
