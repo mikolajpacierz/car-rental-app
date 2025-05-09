@@ -14,12 +14,23 @@ const fetchPayments = async () => {
   }
 };
 
+const headers = [
+  {title: "ID", value: "id"},
+  {title: "Reservation", value: "reservation"},
+  {title: "Amount", value: "amount"},
+  {title: "Method", value: "method"},
+  {title: "Date", value: "date"},
+]
+
 onMounted(fetchPayments);
 
 </script>
 
 <template>
-  <TabNav/>
+  <v-container class="table-container">
+    <v-data-table :headers="headers" :items="payments" class="table">
+    </v-data-table>
+  </v-container>
 </template>
 
 <style scoped>

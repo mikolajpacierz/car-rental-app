@@ -1,7 +1,6 @@
 <script setup>
 import {onMounted, ref} from "vue";
 import axiosInstance from "../services/axiosInstance.js";
-import TabNav from "../components/TabNav.vue";
 
 const clients = ref([])
 
@@ -14,12 +13,24 @@ const fetchClients = async () => {
   }
 }
 
+const headers = [
+  {title: "ID", value: "id"},
+  {title: "First Name", value: "firstName"},
+  {title: "Last Name", value: "lastName"},
+  {title: "Phone Number", value: "phoneNumber"},
+  {title: "Email", value: "email"},
+  {title: "Address", value: "address"},
+]
+
 onMounted(fetchClients);
 
 </script>
 
 <template>
-  <TabNav/>
+  <v-container class="table-container">
+    <v-data-table :headers="headers" :items="clients" class="table">
+    </v-data-table>
+  </v-container>
 </template>
 
 <style scoped>
