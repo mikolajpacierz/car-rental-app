@@ -18,7 +18,7 @@ class PaymentController extends AbstractController
         $this->paymentService = $paymentService;
     }
 
-    #[Route('/payments/new', methods: ['POST'])]
+    #[Route('/api/payments/new', methods: ['POST'])]
     public function create(Request $request): JsonResponse
     {
         $data = json_decode($request->getContent(), true);
@@ -33,14 +33,14 @@ class PaymentController extends AbstractController
         return $this->json($payment, 201);
     }
 
-    #[Route('/payments/{id}', methods: ['GET'])]
+    #[Route('/api/payments/{id}', methods: ['GET'])]
     public function show(int $id): JsonResponse
     {
         $payment = $this->paymentService->getPayment($id);
         return $this->json($payment, 200);
     }
 
-    #[Route('/payments', methods: ['GET'])]
+    #[Route('/api/payments', methods: ['GET'])]
     public function index(): JsonResponse
     {
         $payments = $this->paymentService->getPayments();

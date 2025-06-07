@@ -10,7 +10,9 @@ use Doctrine\ORM\Mapping\GeneratedValue;
 use Doctrine\ORM\Mapping\Id;
 use Doctrine\ORM\Mapping\JoinColumn;
 use Doctrine\ORM\Mapping\OneToOne;
+use Doctrine\ORM\Mapping\Table;
 
+#[Table(name: 'payments')]
 #[Entity(repositoryClass: PaymentRepository::class)]
 class Payment
 {

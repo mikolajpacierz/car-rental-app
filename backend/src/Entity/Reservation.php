@@ -9,7 +9,9 @@ use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping\GeneratedValue;
 use Doctrine\ORM\Mapping\Id;
 use Doctrine\ORM\Mapping\OneToOne;
+use Doctrine\ORM\Mapping\Table;
 
+#[Table(name: 'reservations')]
 #[Entity(repositoryClass: ReservationRepository::class)]
 class Reservation
 {

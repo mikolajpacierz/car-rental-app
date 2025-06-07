@@ -21,7 +21,7 @@ class ReservationController extends AbstractController
     }
 
 
-    #[Route('/reservations/new', methods: ['POST'])]
+    #[Route('/api/reservations/new', methods: ['POST'])]
     public function create(Request $request): JsonResponse
     {
         $data = json_decode($request->getContent(), true);
@@ -34,14 +34,14 @@ class ReservationController extends AbstractController
         return $this->json($reservation, 201);
     }
 
-    #[Route('/reservations/{id}', methods: ['GET'])]
+    #[Route('/api/reservations/{id}', methods: ['GET'])]
     public function show(int $id): JsonResponse
     {
         $reservation = $this->reservationService->getReservation($id);
         return $this->json($reservation, 200);
     }
 
-    #[Route('/reservations', methods: ['GET'])]
+    #[Route('/api/reservations', methods: ['GET'])]
     public function index(): JsonResponse
     {
         $reservations = $this->reservationService->getReservations();
