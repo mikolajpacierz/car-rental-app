@@ -9,6 +9,7 @@
       <v-tab to="/reservations">Reservations</v-tab>
       <v-tab to="/payments">Payments</v-tab>
       <v-tab to="/login">Login</v-tab>
+      <v-tab to="/register">Register</v-tab>
     </v-tabs>
   </v-app-bar>
 </template>

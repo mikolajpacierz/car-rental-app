@@ -1,8 +1,7 @@
 <script setup>
 import {Auth} from "../services/auth.js"
 
-const {email, password, error, login} = Auth();
-
+const {email, password, login} = Auth();
 </script>
 
 <template>
