@@ -16,6 +16,8 @@ const {email, password, login} = Auth();
     </v-col>
     <v-btn type="submit">Submit</v-btn>
   </v-form>
+  
+  <v-btn to="/register">Register</v-btn>
 </template>
 
 <style scoped>

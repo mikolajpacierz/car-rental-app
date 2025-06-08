@@ -1,6 +1,5 @@
 import axiosInstance from "./axiosInstance.js";
 import { ref } from "vue";
-import router from "../router/index.js";
 
 export function Auth() {
     const email = ref('');

@@ -16,11 +16,11 @@ const fetchUsers = async () => {
 const headers = [
   {title: "ID", value: "id"},
   {title: "Email", value: "email"},
-  {title: "Password", value: "password"},
   {title: "First Name", value: "firstName"},
   {title: "Last Name", value: "lastName"},
   {title: "Phone Number", value: "phoneNumber"},
   {title: "Address", value: "address"},
+  {title: "Created At", value: "createdAt"},
 ]
 
 onMounted(fetchUsers);

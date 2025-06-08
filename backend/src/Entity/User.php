@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use DateTimeImmutable;
 use DateTimeInterface;
 use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\Entity;
@@ -33,7 +34,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[Column]
     private string $address;
     #[Column(nullable: true)]
-    private ?DateTimeInterface $createdAt;
+    private DateTimeImmutable $createdAt;
 
     public function getId(): int
     {
@@ -105,12 +106,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->address = $address;
     }
 
-    public function getCreatedAt(): ?DateTimeInterface
+    public function getCreatedAt(): ?DateTimeImmutable
     {
         return $this->createdAt;
     }
 
-    public function setCreatedAt(?DateTimeInterface $createdAt): void
+    public function setCreatedAt(?DateTimeImmutable $createdAt): void
     {
         $this->createdAt = $createdAt;
     }

@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use DateTimeImmutable;
 use Doctrine\ORM\EntityManagerInterface;
 use Lexik\Bundle\JWTAuthenticationBundle\Services\JWTTokenManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -30,8 +31,6 @@ class AuthController extends AbstractController
     ): JsonResponse {
         $data = json_decode($request->getContent(), true);
         
-//        TODO add validation
-        
         $user = new User();
         $user->setEmail($data['email']);
         $user->setPassword($passwordHasher->hashPassword($user, $data['password']));
@@ -39,6 +38,7 @@ class AuthController extends AbstractController
         $user->setLastName($data['lastName']);
         $user->setPhoneNumber($data['phoneNumber']);
         $user->setAddress($data['address']);
+        $user->setCreatedAt(new DateTimeImmutable());
         
         $em->persist($user);
         $em->flush();

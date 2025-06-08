@@ -3,6 +3,7 @@
 namespace App\DTO;
 
 use App\Entity\User;
+use DateTimeImmutable;
 use DateTimeInterface;
 
 class UserResponse
@@ -13,7 +14,7 @@ class UserResponse
     public string $lastName;
     public string $phoneNumber;
     public string $address;
-    public ?DateTimeInterface $createdAt;
+    public ?DateTimeImmutable $createdAt;
 
     public static function fromEntity(User $user): self
     {
