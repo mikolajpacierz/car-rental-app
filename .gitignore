@@ -1,15 +1,10 @@
-
-###> symfony/framework-bundle ###
-/backend/.env.local
-/backend/.env.local.php
-/backend/.env.*.local
+/backend/.env*
 /backend/config/secrets/prod/prod.decrypt.private.php
 /backend/public/bundles/
 /backend/var/
 /backend/vendor/
-###< symfony/framework-bundle ###
+/backend/config/jwt/*.pem
 
-# Logs
 logs
 *.log
 npm-debug.log*
@@ -23,7 +18,6 @@ dist
 dist-ssr
 *.local
 
-# Editor directories and files
 .vscode/*
 !.vscode/extensions.json
 .idea
