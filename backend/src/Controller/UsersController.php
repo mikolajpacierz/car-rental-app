@@ -48,5 +48,4 @@ class UsersController extends AbstractController
         $users = $this->userService->getUsers();
         return $this->json($users, 200);
     }
-
 }

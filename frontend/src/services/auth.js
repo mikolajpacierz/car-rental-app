@@ -1,5 +1,6 @@
 import axiosInstance from "./axiosInstance.js";
 import { ref } from "vue";
+import {useUserStore} from "../stores/user.js";
 
 export function Auth() {
     const email = ref('');
@@ -9,7 +10,7 @@ export function Auth() {
     const phoneNumber = ref('');
     const address = ref('');
     const token = ref('');
-    const error = ref(null);
+    const store = useUserStore();
 
     async function login() {
         try {
@@ -19,8 +20,10 @@ export function Auth() {
             });
             token.value = response.data.token;
             localStorage.setItem("jwt", token.value);
-        } catch (e) {
-            error.value = "Invalid credentials";
+            store.setUser({email: email.value, token: token.value});
+            store.isAuthenticated = true;
+        } catch (error) {
+            console.error("Invalid credentials");
         }
     }
     
@@ -36,8 +39,10 @@ export function Auth() {
             });
             token.value = response.data.token;
             localStorage.setItem("jwt", token.value);
-        } catch (e) {
-            error.value = "Invalid credentials";
+            store.setUser({email: email.value, token: token.value});
+            store.isAuthenticated = true;
+        } catch (error) {
+            console.error("Invalid credentials");
         }
     }
     
